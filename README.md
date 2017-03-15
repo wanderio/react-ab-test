@@ -647,9 +647,9 @@ Sends events to [Segment](https://segment.com). Requires `window.segment` to be 
 
 #### Usage
 
-When the [`<Experiment />`](#experiment-) is mounted, the helper sends an `Experiment Play` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `Experiment` and `Variant` properties.
+When the [`<Experiment />`](#experiment-) is mounted, the helper sends an `Experiment Viewed` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experiment_name` and `variant_name` properties.
 
-When a [win is emitted](#emitteremitwinexperimentname) the helper sends an `Experiment Win` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `Experiment` and `Variant` properties.
+When a [win is emitted](#emitteremitwinexperimentname) the helper sends an `Experiment Won` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experiment_name` and `variant_name` properties.
 
 Try it [on JSFiddle](https://jsfiddle.net/pushtell/ae1jeo2k/)
 
@@ -665,12 +665,12 @@ segmentHelper.enable();
 var App = React.createClass({
   onButtonClick: function(e){
     emitter.emitWin("My Example");
-    // segmentHelper sends the 'Experiment Win' event, equivalent to:
-    // segment.track('Experiment Win', {Experiment: "My Example", Variant: "A"})
+    // segmentHelper sends the 'Experiment Won' event, equivalent to:
+    // segment.track('Experiment Won', {Experiment: "My Example", Variant: "A"})
   },
   componentWillMount: function(){
-    // segmentHelper sends the 'Experiment Play' event, equivalent to:
-    // segment.track('Experiment Play', {Experiment: "My Example", Variant: "A"})
+    // segmentHelper sends the 'Experiment Viewed' event, equivalent to:
+    // segment.track('Experiment Viewed', {Experiment: "My Example", Variant: "A"})
   },
   render: function(){
     return <div>
