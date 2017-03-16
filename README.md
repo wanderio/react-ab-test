@@ -652,9 +652,9 @@ Sends events to [Segment](https://segment.com). Requires `window.analytics` to b
 
 #### Usage
 
-When the [`<Experiment />`](#experiment-) is mounted, the helper sends an `Experiment Viewed` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experiment_name` and `variant_name` properties.
+When the [`<Experiment />`](#experiment-) is mounted, the helper sends an `Experiment Viewed` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experimentName` and `variant_name` properties.
 
-When a [win is emitted](#emitteremitwinexperimentname) the helper sends an `Experiment Won` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experiment_name` and `variant_name` properties.
+When a [win is emitted](#emitteremitwinexperimentname) the helper sends an `Experiment Won` event using [`segment.track(...)`](https://segment.com/docs/libraries/analytics.js/#track) with `experimentName` and `variant_name` properties.
 
 Try it [on JSFiddle](https://jsfiddle.net/pushtell/ae1jeo2k/)
 
