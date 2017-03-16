@@ -13,16 +13,16 @@ export default {
       }
       playSubscription = emitter.addPlayListener(function(experimentName, variantName){
         analytics.track("Experiment Viewed", {
-          "experiment_name": experimentName,
-          "variation_name": variantName
+          "experimentName": experimentName,
+          "variationName": variantName
         }, function(){
           emitter.emit("segment-play", experimentName, variantName);
         });
       });
       winSubscription = emitter.addWinListener(function(experimentName, variantName){
         analytics.track("Experiment Won", {
-          "experiment_name": experimentName,
-          "variation_name": variantName
+          "experimentName": experimentName,
+          "variationName": variantName
         }, function(){
           emitter.emit("segment-win", experimentName, variantName);
         });
