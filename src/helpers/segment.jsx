@@ -1,7 +1,7 @@
 import emitter from "../emitter";
 import {canUseDOM} from 'fbjs/lib/ExecutionEnvironment';
 
-let playSubscription, winSubscription;
+let identifySubscription;
 
 export default {
   enable(){
@@ -11,22 +11,11 @@ export default {
         error.type = "PUSHTELL_HELPER_MISSING_GLOBAL";
         throw error;
       }
-      playSubscription = emitter.addPlayListener(function(experimentName, variantName){
-        analytics.track("Experiment Viewed", {
-          "experimentName": experimentName,
-          "variationName": variantName
-        }, function(){
-          emitter.emit("segment-play", experimentName, variantName);
-        });
-      });
-      winSubscription = emitter.addWinListener(function(experimentName, variantName){
-        analytics.track("Experiment Won", {
-          "experimentName": experimentName,
-          "variationName": variantName
-        }, function(){
-          emitter.emit("segment-win", experimentName, variantName);
-        });
-      });
+      identifySubscription = emitter.addIdentifyListener((experimentName, variantName) => {
+        analytics.identify({[experimentName]: variantName}, () =>
+          emitter.emit('analytics-identify', experimentName, variantName)
+        )
+      })
     }
   },
   disable(){
@@ -36,8 +25,7 @@ export default {
         error.type = "PUSHTELL_HELPER_INVALID_DISABLE";
         throw error;
       }
-      playSubscription.remove();
-      winSubscription.remove();
+      identifySubscription.remove()
     }
   }
 }
