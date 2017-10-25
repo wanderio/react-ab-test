@@ -22,6 +22,7 @@
   "dependencies": {
     "fbemitter": "^2.0.2",
     "fbjs": "~0",
+    "prettier": "^1.7.4",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
