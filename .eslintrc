@@ -17,7 +17,6 @@
   "rules": {
     "camelcase": 0,
     "no-sequences": 0,
-    "no-extra-parens": 2,
     "no-loop-func": 2,
     "require-yield": 2
   }
