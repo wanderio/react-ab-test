@@ -234,13 +234,13 @@ if (process.env.NODE_ENV === 'production' || !canUseDOM) {
         )
       }
 
-      if (experimentNames.length > 0) {
+      if (this.experimentNames.length > 0) {
         return (
           <div
             className="pushtell-container pushtell-handle"
             onClick={this.toggleVisibility}
           >
-            {experimentNames.length} Active Experiment{experimentNames.length > 1 ? 's' : ''}
+            {this.experimentNames.length} Active Experiment{this.experimentNames.length > 1 ? 's' : ''}
           </div>
         )
       }
